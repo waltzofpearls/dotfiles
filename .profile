@@ -20,7 +20,7 @@ WHITE='\e[0;97m'   # White
 
 #
 # MacOS Default PS1
-# PS1="\h:\W \u$ "
+# PS1="\h:\W \u\$ "
 #
 PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 
