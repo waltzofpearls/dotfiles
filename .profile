@@ -22,10 +22,11 @@ WHITE='\e[0;97m'   # White
 # MacOS Default PS1
 # PS1="\h:\W \u\$ "
 #
-PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
+export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 
 alias ls="ls -G"
 alias ll="ls -ahl"
-alias gp="grep -irn --color"
+alias gp="grep -in --color"
+alias gr="grep -irn --color"
 alias d="cd $HOME/Mjolnir/Dev"
 alias dd="cd $HOME/Dropbox/Dev"
