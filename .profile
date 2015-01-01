@@ -25,8 +25,8 @@ alias ls="ls -G"
 alias ll="ls -ahl"
 alias gp="grep -in --color"
 alias gr="grep -irn --color"
-alias d="cd $HOME/Mjolnir/Dev"
-alias dd="cd $HOME/Dropbox/Dev"
+alias d1="cd $HOME/Mjolnir/Dev"
+alias d2="cd $HOME/Dropbox/Dev"
 
 #
 # https://github.com/git/git/tree/master/contrib/completion
