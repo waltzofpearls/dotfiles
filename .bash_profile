@@ -1,11 +1,5 @@
 
 #
-# https://github.com/git/git/tree/master/contrib/completion
-#
-source $HOME/.git-completion.sh
-source $HOME/.git-prompt.sh
-
-#
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 #
 COLOR_OFF='\e[0m'  # Text Reset
@@ -23,3 +17,9 @@ WHITE='\e[0;97m'   # White
 # PS1="[\u@\h \W]\$ "
 #
 export PS1="\[$WHITE\][\u@\h \[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1)\[$WHITE\]]\$ "
+
+#
+# https://github.com/git/git/tree/master/contrib/completion
+#
+source $HOME/.git-completion.sh
+source $HOME/.git-prompt.sh

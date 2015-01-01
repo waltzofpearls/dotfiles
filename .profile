@@ -1,9 +1,6 @@
 
-#
-# https://github.com/git/git/tree/master/contrib/completion
-#
-source $HOME/.git-completion.sh
-source $HOME/.git-prompt.sh
+export GOPATH=$HOME/Mjolnir/Dev/Golang/default
+export PATH=$PATH:$GOPATH/bin
 
 #
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
@@ -30,3 +27,9 @@ alias gp="grep -in --color"
 alias gr="grep -irn --color"
 alias d="cd $HOME/Mjolnir/Dev"
 alias dd="cd $HOME/Dropbox/Dev"
+
+#
+# https://github.com/git/git/tree/master/contrib/completion
+#
+source $HOME/.git-completion.sh
+source $HOME/.git-prompt.sh
