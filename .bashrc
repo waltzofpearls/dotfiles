@@ -1,15 +1,13 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+[ -f /etc/bashrc ] && . /etc/bashrc
 
 #
 # https://github.com/git/git/tree/master/contrib/completion
 #
-source $HOME/.git-completion.sh
-source $HOME/.git-prompt.sh
+[ -f ~/.git-completion.sh ] && . ~/.git-completion.sh
+[ -f ~/.git-prompt.sh ] && . ~/.git-prompt.sh
 
 #
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
@@ -35,6 +33,8 @@ export PS1="\[$WHITE\][\u@\h \[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1)\[$WHI
 #
 export GOPATH=$HOME/golang
 export PATH=$PATH:$HOME/bin:$GOPATH/bin:$HOME/scripts
+
+export PGUSER=beanuser
 
 alias_gi() { grep -irn --color $1 .; }
 alias_gr() { grep -rn --color $1 .; }
@@ -64,11 +64,12 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
+alias c='rm -rf app/cache/; sudo apachectl restart; redis-cli FLUSHALL'
 alias cac='rm -rf app/cache/; app/console cache:clear; sudo apachectl restart'
 alias ccc='for env in "dev" "test" "prod"; do app/console cache:clear --env="$env"; done;'
 alias ll='ls -ahl'
-alias phpu='date; time bin/phpunit -c app/ --stop-on-failure --stop-on-error'
-alias phpuf='date; time bin/phpunit -c app/ --stop-on-failure --stop-on-error --filter '
+alias phpu='date; time bin/phpunit -c app/'
+alias phpuf='date; time bin/phpunit -c app/ --filter '
 alias phpus='bin/phpunit -c app/ src/Bean/APIBundle/Tests/SqliteSchemaGeneration.php'
 alias gi=alias_gi
 alias gr=alias_gr
