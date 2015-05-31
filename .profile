@@ -28,6 +28,11 @@ alias gr="grep -irn --color $1 ."
 alias d1="cd $HOME/Mjolnir/Dev"
 alias d2="cd $HOME/Dropbox/Dev"
 alias rc="source ~/.profile"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 #
 # https://github.com/git/git/tree/master/contrib/completion
