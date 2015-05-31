@@ -27,6 +27,7 @@ alias gp="grep -in --color $1 ."
 alias gr="grep -irn --color $1 ."
 alias d1="cd $HOME/Mjolnir/Dev"
 alias d2="cd $HOME/Dropbox/Dev"
+alias rc="source ~/.profile"
 
 #
 # https://github.com/git/git/tree/master/contrib/completion
