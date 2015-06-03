@@ -1,6 +1,8 @@
 
 export GOPATH=$HOME/Mjolnir/Dev/Golang/default
-export PATH=$PATH:$GOPATH/bin
+export PYPATH=$HOME/Library/Python/3.4
+export PATH=$PATH:$PYPATH/bin:$GOPATH/bin
+export NVM_DIR=$HOME/.nvm
 
 #
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
@@ -21,18 +23,15 @@ WHITE='\e[0;97m'   # White
 #
 export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 
-gp() {
-    grep -in --color $1 .
-}
-gr() {
-    grep -irn --color $1 .
-}
-
+#
+# Aliases
+#
+function g { grep -irn --color "$1" .; }
 alias ls='ls -G'
 alias ll='ls -ahl'
 alias d1='cd $HOME/Mjolnir/Dev'
 alias d2='cd $HOME/Dropbox/Dev'
-alias rc='source ~/.profile'
+alias rc='. ~/.profile'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -42,5 +41,6 @@ alias ......='cd ../../../../..'
 #
 # https://github.com/git/git/tree/master/contrib/completion
 #
-source $HOME/.git-completion.sh
-source $HOME/.git-prompt.sh
+[ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
+[ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
