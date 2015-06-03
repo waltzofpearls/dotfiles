@@ -29,7 +29,7 @@ export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 function g { grep -irn --color "$1" .; }
 alias ls='ls -G'
 alias ll='ls -ahl'
-alias d1='cd $HOME/Mjolnir/Dev'
+alias d='cd $HOME/Mjolnir/Dev'
 alias d2='cd $HOME/Dropbox/Dev'
 alias rc='. ~/.profile'
 alias ..='cd ..'
