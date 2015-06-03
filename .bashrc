@@ -36,9 +36,9 @@ export PATH=$PATH:$HOME/bin:$GOPATH/bin:$HOME/scripts
 
 export PGUSER=beanuser
 
-alias_gi() { grep -irn --color $1 .; }
-alias_gr() { grep -rn --color $1 .; }
-alias_say() { echo "$@" | espeak; }
+gi() { grep -irn --color $1 .; }
+gr() { grep -rn --color $1 .; }
+say() { echo "$@" | espeak; }
 
 #
 # Aliases
@@ -71,6 +71,3 @@ alias ll='ls -ahl'
 alias phpu='date; time bin/phpunit -c app/'
 alias phpuf='date; time bin/phpunit -c app/ --filter '
 alias phpus='bin/phpunit -c app/ src/Bean/APIBundle/Tests/SqliteSchemaGeneration.php'
-alias gi=alias_gi
-alias gr=alias_gr
-alias say=alias_say
