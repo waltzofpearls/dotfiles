@@ -1,8 +1,18 @@
+#
+# [Mac OS] .profile
+#
 
 export GOPATH=$HOME/Mjolnir/Dev/Golang/default
 export PYPATH=$HOME/Library/Python/3.4
 export PATH=$PATH:$PYPATH/bin:$GOPATH/bin
 export NVM_DIR=$HOME/.nvm
+
+#
+# https://github.com/git/git/tree/master/contrib/completion
+#
+[ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
+[ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 #
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
@@ -50,10 +60,3 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-
-#
-# https://github.com/git/git/tree/master/contrib/completion
-#
-[ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
-[ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

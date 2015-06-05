@@ -1,4 +1,6 @@
-# .bashrc
+#
+# [Linux] .bashrc
+#
 
 # Source global definitions
 [ -f /etc/bashrc ] && . /etc/bashrc
@@ -6,8 +8,8 @@
 #
 # https://github.com/git/git/tree/master/contrib/completion
 #
-[ -f ~/.git-completion.sh ] && . ~/.git-completion.sh
-[ -f ~/.git-prompt.sh ] && . ~/.git-prompt.sh
+[ -f $HOME/.git-completion.sh ] && . $HOME/.git-completion.sh
+[ -f $HOME/.git-prompt.sh ] && . $HOME/.git-prompt.sh
 
 #
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
