@@ -1,0 +1,16 @@
+[user]
+        name = Rollie Ma
+        email = rollie.ma@gmail.com
+[push]
+        default = upstream
+[color]
+        ui = auto
+[alias]
+        co = checkout
+        br = branch
+        ci = commit
+        st = status
+        a = add
+        d = diff
+        unstage = reset HEAD --
+        last = log -1 HEAD
