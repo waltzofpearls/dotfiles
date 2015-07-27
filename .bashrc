@@ -37,10 +37,19 @@ export GOPATH=$HOME/golang
 export PATH=$PATH:$HOME/bin:$GOPATH/bin:$HOME/scripts
 
 export PGUSER=beanuser
+export PGDATABASE=postgres
+export SYMFONY__ENV__MONGO__HOST=localhost
+export SYMFONY__ENV__MONGO__PORT=27017
 
 gi() { grep -irn --color $1 .; }
 gr() { grep -rn --color $1 .; }
 say() { echo "$@" | espeak; }
+setupdemo() {
+    local DB_NAME=${1:-shardone}
+    psql postgres -c "DROP DATABASE ${DB_NAME};"
+    psql postgres -c "CREATE DATABASE ${DB_NAME};"
+    ./gradlew setupDemo
+}
 
 #
 # Aliases
@@ -59,7 +68,11 @@ alias a4='cd /var/bean/api4/'
 alias a5='cd /var/bean/api5/'
 alias A='cd src/Bean/APIBundle/'
 alias rc='source ~/.bash_profile'
+alias sd='setupdemo'
+alias ga='git add'
+alias gd='git diff'
 alias gst='git status'
+alias gsh='git stash'
 alias gaa='git add -A'
 alias gap='git add -p'
 alias gpl='git pull'
