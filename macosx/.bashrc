@@ -32,7 +32,9 @@ export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 #
 # Aliases
 #
-function g { grep -irn --color "$1" .; }
+g() {
+    grep -irn --color "$1" .
+}
 alias ls='ls -G'
 alias ll='ls -ahl'
 alias d='cd $HOME/Mjolnir/Dev'
