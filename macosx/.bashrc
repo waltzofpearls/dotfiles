@@ -74,3 +74,5 @@ unset DOCKER_CERT_PATH
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$PYPATH/bin/virtualenvwrapper.sh" ] && . "$PYPATH/bin/virtualenvwrapper.sh"
 [ -s /usr/local/opt/autoenv/activate.sh ] && . /usr/local/opt/autoenv/activate.sh
+
+__git_complete gco __git_main

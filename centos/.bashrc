@@ -97,3 +97,5 @@ alias u='date; time bin/phpunit -c app/'
 alias us='date; time bin/phpunit -c app/ --stop-on-failure --stop-on-error'
 alias uf='date; time bin/phpunit -c app/ --filter '
 alias usql='bin/phpunit -c app/ src/Bean/APIBundle/Tests/SqliteSchemaGeneration.php'
+
+__git_complete gco __git_main
