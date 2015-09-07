@@ -14,3 +14,5 @@
         d = diff
         unstage = reset HEAD --
         last = log -1 HEAD
+[core]
+	editor = /usr/bin/vim
