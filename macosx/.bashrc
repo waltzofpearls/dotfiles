@@ -68,7 +68,7 @@ alias ......='cd ../../../../..'
 #
 # https://github.com/git/git/tree/master/contrib/completion
 #
-[ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
+[ -s "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
 [ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$PYPATH/bin/virtualenvwrapper.sh" ] && . "$PYPATH/bin/virtualenvwrapper.sh"

@@ -8,7 +8,7 @@
 #
 # https://github.com/git/git/tree/master/contrib/completion
 #
-[ -f $HOME/.git-completion.sh ] && . $HOME/.git-completion.sh
+[ -f $HOME/.git-completion.bash ] && . $HOME/.git-completion.bash
 [ -f $HOME/.git-prompt.sh ] && . $HOME/.git-prompt.sh
 
 #
