@@ -2,11 +2,11 @@
 # [Mac OS X] .bashrc
 #
 
+export NVM_DIR=$HOME/.nvm
 export GOPATH=$HOME/Mjolnir/Dev/Golang/default
 export PYPATH=$HOME/Library/Python/3.4
-export PYPATHG=/Library/Frameworks/Python.framework/Versions/3.4
+export PYPATHG=/usr/local/Cellar/python3/3.4.3_2/
 export PATH=$PATH:$PYPATH/bin:$PYPATHG/bin:$GOPATH/bin
-export NVM_DIR=$HOME/.nvm
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$PYPATHG/bin/python3
 
@@ -37,9 +37,12 @@ g() {
 }
 alias ls='ls -G'
 alias ll='ls -ahl'
+alias vim='/usr/local/bin/vim'
+alias vimdiff='/usr/local/bin/vimdiff'
 alias d='cd $HOME/Mjolnir/Dev'
 alias d2='cd $HOME/Dropbox/Dev'
 alias rc='. ~/.profile'
+alias dec='eval $(docker-machine env default)'
 alias ga='git add'
 alias gd='git diff'
 alias gst='git status'
@@ -61,10 +64,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-
-export DOCKER_HOST=tcp://192.168.59.103:2375
-unset DOCKER_TLS_VERIFY
-unset DOCKER_CERT_PATH
 
 #
 # https://github.com/git/git/tree/master/contrib/completion
