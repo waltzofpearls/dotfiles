@@ -144,3 +144,11 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
+
+filetype plugin indent on
+autocmd FileType python setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType sh setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType go setlocal tabstop=8 noexpandtab
+autocmd FileType make setlocal tabstop=4 noexpandtab
