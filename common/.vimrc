@@ -15,7 +15,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'modess/vim-phpcolors'
 Plugin 'stuartherbert/vim-phix-colors'
 Plugin 'yegappan/mru'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -61,6 +62,7 @@ imap jj <Esc>
 
 noremap <S-Enter> O<Esc>
 
+nnoremap <f3> :!ctags -R<CR>
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
