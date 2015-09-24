@@ -30,11 +30,23 @@ WHITE='\e[0;97m'   # White
 export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 
 #
-# Aliases
+# Functions
 #
 g() {
-    grep -irn --color "$1" .
+  grep -irn --color "$1" .
 }
+
+dm() {
+  docker run \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /var/lib/docker:/var/lib/docker \
+    --rm martin/docker-cleanup-volumes \
+    --dry-run
+}
+
+#
+# Aliases
+#
 alias ls='ls -G'
 alias ll='ls -ahl'
 alias vim='/usr/local/bin/vim'
