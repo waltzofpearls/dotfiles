@@ -3,6 +3,7 @@
 #
 
 export NVM_DIR=$HOME/.nvm
+export DCM_DIR=$HOME/Mjolnir/Dev/Bean/docker-compose
 export GOPATH=$HOME/Mjolnir/Dev/Golang/default
 export PYPATH=$HOME/Library/Python/3.4
 export PYPATHG=/usr/local/Cellar/python3/3.4.3_2/
@@ -83,6 +84,7 @@ alias ......='cd ../../../../..'
 [ -s "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
 [ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$DCM_DIR/dcm.sh" ] && . "$DCM_DIR/dcm.sh"
 [ -s "$PYPATH/bin/virtualenvwrapper.sh" ] && . "$PYPATH/bin/virtualenvwrapper.sh"
 [ -s /usr/local/opt/autoenv/activate.sh ] && . /usr/local/opt/autoenv/activate.sh
 
