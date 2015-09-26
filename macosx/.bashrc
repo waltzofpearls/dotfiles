@@ -33,50 +33,12 @@ export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 #
 # Functions
 #
-g() {
-  grep -irn --color "$1" .
-}
-
-dm() {
-  docker run \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /var/lib/docker:/var/lib/docker \
-    --rm martin/docker-cleanup-volumes \
-    --dry-run
-}
+[ -s "$HOME/.functions" ] && . "$HOME/.functions"
 
 #
 # Aliases
 #
-alias ls='ls -G'
-alias ll='ls -ahl'
-alias vim='/usr/local/bin/vim'
-alias vimdiff='/usr/local/bin/vimdiff'
-alias d='cd $HOME/Mjolnir/Dev'
-alias d2='cd $HOME/Dropbox/Dev'
-alias rc='. ~/.profile'
-alias dec='eval $(docker-machine env default)'
-alias ga='git add'
-alias gd='git diff'
-alias gst='git status'
-alias gsh='git stash'
-alias gaa='git add -A'
-alias gap='git add -p'
-alias gpl='git pull'
-alias gph='git push'
-alias gdf='git diff'
-alias gds='git diff --staged'
-alias gci='git commit'
-alias gco='git checkout'
-alias gbr='git branch'
-alias glg='git log'
-alias glp='git log --pretty=format:"%h %s" --graph'
-alias glt='git log -1 HEAD'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
+[ -s "$HOME/.aliases" ] && . "$HOME/.aliases"
 
 #
 # https://github.com/git/git/tree/master/contrib/completion
@@ -88,4 +50,9 @@ alias ......='cd ../../../../..'
 [ -s "$PYPATH/bin/virtualenvwrapper.sh" ] && . "$PYPATH/bin/virtualenvwrapper.sh"
 [ -s /usr/local/opt/autoenv/activate.sh ] && . /usr/local/opt/autoenv/activate.sh
 
+__git_complete gmg __git_main
+__git_complete grb __git_main
+__git_complete gpl __git_main
+__git_complete gph __git_main
 __git_complete gco __git_main
+__git_complete gbr __git_main
