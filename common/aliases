@@ -1,0 +1,32 @@
+#
+# Common Aliases
+#
+
+alias ga='git add'
+alias gd='git diff'
+alias gst='git status'
+alias gmg='git merge'
+alias grb='git rebase'
+alias gsh='git stash'
+alias gsl='git stash list'
+alias gsp='git stash pop'
+alias gaa='git add -A'
+alias gap='git add -p'
+alias gpl='git pull'
+alias gph='git push'
+alias gdf='git diff'
+alias gds='git diff --staged'
+alias gci='git commit'
+alias gco='git checkout'
+alias gbr='git branch'
+alias glg='git log'
+alias glp='git log --pretty=format:"%h %s" --graph'
+alias glt='git log -1 HEAD'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
