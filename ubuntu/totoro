@@ -1,0 +1,40 @@
+#
+# [Ubuntu] custom .bashrc
+#
+
+#
+# https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+#
+COLOR_OFF='\e[0m'  # Text Reset
+BLACK='\e[0;90m'   # Black
+RED='\e[0;91m'     # Red
+GREEN='\e[0;92m'   # Green
+YELLOW='\e[0;93m'  # Yellow
+BLUE='\e[0;94m'    # Blue
+PURPLE='\e[0;95m'  # Purple
+CYAN='\e[0;96m'    # Cyan
+WHITE='\e[0;97m'   # White
+
+#
+# MacOS Default PS1
+# PS1="${debian_chroot:+($debian_chroot)}\u@\h:\W\$ "
+#
+export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\$ "
+
+#
+# Functions
+#
+[ -s "$HOME/.functions" ] && . "$HOME/.functions"
+
+#
+# Aliases
+#
+[ -s "$HOME/.aliases" ] && . "$HOME/.aliases"
+
+#
+# https://github.com/git/git/tree/master/contrib/completion
+#
+[ -s "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
+[ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$DCM_DIR/dcm.sh" ] && . "$DCM_DIR/dcm.sh"
