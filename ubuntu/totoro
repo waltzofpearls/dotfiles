@@ -21,6 +21,9 @@ WHITE='\e[0;97m'   # White
 #
 export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\$ "
 
+export NVM_DIR=$HOME/.nvm
+export DCM_DIR=$HOME/workspace/docker-compose
+
 #
 # Functions
 #
@@ -34,7 +37,7 @@ export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\[$YELLOW\]\W\[\033[m\]\[$CY
 #
 # https://github.com/git/git/tree/master/contrib/completion
 #
-[ -s "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
+[ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
 [ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$DCM_DIR/dcm.sh" ] && . "$DCM_DIR/dcm.sh"
