@@ -2,15 +2,6 @@
 # [Mac OS X] .bashrc
 #
 
-export NVM_DIR=$HOME/.nvm
-export DCM_DIR=$HOME/Mjolnir/Dev/Bean/docker-compose
-export GOPATH=$HOME/Mjolnir/Dev/Golang/default
-export PYPATH=$HOME/Library/Python/3.4
-export PYPATHG=/usr/local/Cellar/python3/3.4.3_2/
-export PATH=$PATH:$PYPATH/bin:$PYPATHG/bin:$GOPATH/bin
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=$PYPATHG/bin/python3
-
 #
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 #
@@ -29,6 +20,15 @@ WHITE='\e[0;97m'   # White
 # PS1="\h:\W \u\$ "
 #
 export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
+
+export NVM_DIR=$HOME/.nvm
+export DCM_DIR=$HOME/Mjolnir/Dev/Bean/docker-compose
+export GOPATH=$HOME/Mjolnir/Dev/Golang/default
+export PYPATH=$HOME/Library/Python/3.4
+export PYPATHG=/usr/local/Cellar/python3/3.4.3_2/
+export PATH=$PATH:$PYPATH/bin:$PYPATHG/bin:$GOPATH/bin
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$PYPATHG/bin/python3
 
 #
 # Functions
