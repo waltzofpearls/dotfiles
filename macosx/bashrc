@@ -43,7 +43,7 @@ export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 #
 # https://github.com/git/git/tree/master/contrib/completion
 #
-[ -s "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
+[ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
 [ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$DCM_DIR/dcm.sh" ] && . "$DCM_DIR/dcm.sh"
