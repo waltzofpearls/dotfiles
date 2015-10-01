@@ -145,12 +145,12 @@ bind r screen -t '% |root:' sudo bash -l
 # screen -t mail 1 elm
 # screen -t 40 2 rlogin faui40
 # while [ $x -lt 10 ]; do echo screen -t `perl -e "print chr $x+65"` $x;x=`expr $x + 1`; done
-screen -t "shell" 0
 screen -t "shell" 1
 screen -t "shell" 2
 screen -t "shell" 3
 screen -t "shell" 4
 screen -t "shell" 5
+screen -t "shell" 6
 
 # caption always "%3n %t%? @%u%?%? [%h]%?"
 # hardstatus alwaysignore
