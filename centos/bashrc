@@ -23,6 +23,8 @@ WHITE='\e[0;97m'   # White
 #
 export PS1="\[$WHITE\][\u@\h \[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1)\[$WHITE\]]\$ "
 
+export NVM_DIR=$HOME/.nvm
+export DCM_DIR=$HOME/workspace/docker-compose
 export GOPATH=$HOME/golang
 export PATH=$PATH:$HOME/bin:$GOPATH/bin:$HOME/scripts
 
@@ -44,12 +46,15 @@ export SYMFONY__ENV__MONGO__PORT=27017
 #
 # https://github.com/git/git/tree/master/contrib/completion
 #
-[ -s $HOME/.git-completion.sh ] && . $HOME/.git-completion.sh
-[ -s $HOME/.git-prompt.sh ] && . $HOME/.git-prompt.sh
+[ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
+[ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$DCM_DIR/dcm.sh" ] && . "$DCM_DIR/dcm.sh"
 
-__git_complete gmg __git_main
-__git_complete grb __git_main
-__git_complete gpl __git_main
-__git_complete gph __git_main
-__git_complete gco __git_main
-__git_complete gbr __git_main
+__git_complete gmg _git_merge
+__git_complete grb _git_rebase
+__git_complete gpl _git_pull
+__git_complete gph _git_push
+__git_complete gco _git_checkout
+__git_complete gbr _git_branch
+__git_complete gsh _git_stash
