@@ -1,1 +1,53 @@
 #!/bin/bash
+
+print_help() {
+  echo
+  echo "Dotfiles Setup"
+  echo
+  echo "Usage:"
+  echo "  ./setup dotfiles <macosx|ubuntu|centos>   Setup dotfiles for Mac OS X, Ubuntu or CentOS"
+  echo "  ./setup dryrun <macosx|ubuntu|centos>     Setup dotfiles for Mac OS X, Ubuntu or CentOS"
+  echo "  ./setup <help|h>                          Show this message"
+  echo
+  exit 0
+}
+
+if [ $# -lt 1 ]; then
+  print_help
+fi
+
+case "$1" in
+  "help" | "h" )
+    print_help
+    ;;
+  "dotfiles" | "dryrun" )
+    # Check the number of Arguments, must not be less than two
+    if [ $# -lt 2 ]; then
+      print_help
+    fi
+
+    # Check the 2nd argument, must be macosx, ubuntu or centos
+    if [ "$2" = "macosx" ] || [ "$2" = "ubuntu" ] || [ "$2" = "centos" ]; then
+      # 1st argument is dotfiles
+      if [ "$1" = "dotfiles" ]; then
+        (cd ./common; ./setup)
+        (cd $1; ./setup)
+      # 1st argument is dryrun
+      else
+        echo
+        echo "=========== Dryrun [common] Dotfiles Setup ==========="
+        (cd ./common; cat ./setup)
+        echo
+        echo "=========== Dryrun [$2] Dotfiles Setup ==========="
+        (cd $2; cat ./setup)
+        echo
+      fi
+    # Otherwise print help message
+    else
+      print_help
+    fi
+    ;;
+  * )
+    print_help
+    ;;
+esac

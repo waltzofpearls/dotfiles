@@ -8,6 +8,7 @@ alias vim='/usr/local/bin/vim'
 alias vimdiff='/usr/local/bin/vimdiff'
 alias d='cd $HOME/Mjolnir/Dev'
 alias d2='cd $HOME/Dropbox/Dev'
-alias rc='. ~/.profile'
+alias rc=". $HOME/.profile"
 alias dec='eval $(docker-machine env default)'
+alias sha='$HOME/.ssh/ssh-add'
 
