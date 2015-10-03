@@ -51,9 +51,9 @@ export VIRTUALENVWRAPPER_PYTHON=$PYPATHG/bin/python3
 [ -s "$PYPATH/bin/virtualenvwrapper.sh" ] && . "$PYPATH/bin/virtualenvwrapper.sh"
 [ -s /usr/local/opt/autoenv/activate.sh ] && . /usr/local/opt/autoenv/activate.sh
 
-__git_complete gmg __git_main
-__git_complete grb __git_main
-__git_complete gpl __git_main
-__git_complete gph __git_main
-__git_complete gco __git_main
-__git_complete gbr __git_main
+__git_complete gmg _git_merge
+__git_complete grb _git_rebase
+__git_complete gpl _git_pull
+__git_complete gph _git_push
+__git_complete gco _git_checkout
+__git_complete gbr _git_branch
