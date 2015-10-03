@@ -17,6 +17,7 @@ Plugin 'stuartherbert/vim-phix-colors'
 Plugin 'yegappan/mru'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-eunuch'
 call vundle#end()
 filetype plugin indent on
 

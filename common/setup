@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tee $HOME/.gitconfig < gitconfig
+tee $HOME/.screenrc < screenrc
+tee $HOME/.vimrc < vimrc
+
+mkdir -p $HOME/.vim

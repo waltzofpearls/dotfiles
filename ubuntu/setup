@@ -1,0 +1,8 @@
+#!/bin/bash
+
+tee $HOME/.totoro < totoro
+tee $HOME/.bashrc < bashrc
+tee -a $HOME/.aliases < aliases
+tee -a $HOME/.functions < functions
+
+source $HOME/.profile

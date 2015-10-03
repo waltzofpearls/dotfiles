@@ -1,9 +1,9 @@
 #
-# Functions
+# [Mac OS X] Functions
 #
 
 g() {
-  grep -irn --color "$1" .
+  grep -irn --color $1 .
 }
 
 dm() {
