@@ -4,13 +4,14 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 brew install wget
 brew install autoenv
+brew install vim
 
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
 
-tee $HOME/.profile < profile
-tee $HOME/.bashrc < bashrc
-tee -a $HOME/.aliases < aliases
-tee -a $HOME/.functions < functions
+cat ./profile > $HOME/.profile
+cat ./bashrc > $HOME/.bashrc
+cat ./aliases >> $HOME/.aliases
+cat ./functions >>  $HOME/.functions
 
 source $HOME/.profile

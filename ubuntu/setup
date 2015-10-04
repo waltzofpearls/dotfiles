@@ -1,8 +1,19 @@
 #!/bin/bash
 
-tee $HOME/.totoro < totoro
-tee $HOME/.bashrc < bashrc
-tee -a $HOME/.aliases < aliases
-tee -a $HOME/.functions < functions
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
+
+cat ./totoro > $HOME/.totoro
+cat ./aliases >> $HOME/.aliases
+cat ./functions >> $HOME/.functions
+
+cat <<'EOT' >> $HOME/.bashrc
+
+#
+# Custom bashrc [.totoro]
+#
+[ -s "$HOME/.totoro" ] && . "$HOME/.totoro"
+
+EOT
 
 source $HOME/.profile

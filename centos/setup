@@ -3,9 +3,9 @@
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
 
-tee $HOME/.bash_profile < bash_profile
-tee $HOME/.bashrc < bashrc
-tee -a $HOME/.aliases < aliases
-tee -a $HOME/.functions < functions
+cat ./bash_profile > $HOME/.bash_profile
+cat ./bashrc > $HOME/.bashrc
+cat ./aliases >> $HOME/.aliases
+cat ./functions >> $HOME/.functions
 
 source $HOME/.bash_profile
