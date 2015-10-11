@@ -27,7 +27,7 @@ export DCM_DIR=$HOME/Mjolnir/Dev/Bean/docker-compose
 export GOPATH=$HOME/Mjolnir/Dev/Golang/default
 export PYPATH=$HOME/Library/Python/3.4
 export PYPATHG=/usr/local/Cellar/python3/3.4.3_2/
-export PATH=$PATH:$PYPATH/bin:$PYPATHG/bin:$GOPATH/bin
+export PATH=$PATH:$PYPATH/bin:$PYPATHG/bin:$GOROOT/bin:$GOPATH/bin
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$PYPATHG/bin/python3
 
