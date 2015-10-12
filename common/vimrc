@@ -18,6 +18,8 @@ Plugin 'yegappan/mru'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'StanAngeloff/php.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -47,7 +49,7 @@ set updatetime=2000
 set ignorecase      " ignore case in search patterns ...
 set smartcase       " ... unless pattern contains uppercase
 set title titlestring=%F%M%R
-set statusline=%F%m%r%h%w%y%=%l,%c%V\ (%3b=0x%02B)\ %P
+set statusline=%F%m%r%h%w%y%=%{fugitive#statusline()}\ %l,%c%V\ (%3b=0x%02B)\ %P
 set scrolloff=2
 set incsearch       " do incremental searching
 set listchars=tab:^.,trail:¦
@@ -140,6 +142,7 @@ endfunction
 com! -nargs=? GrepTab call s:NewTabGrep('<args>')
 " ------------------------------- Functions::End -------------------------------
 
+" >>>>> go-vim >>>>>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -155,3 +158,17 @@ autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expand
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType go setlocal tabstop=8 noexpandtab
 autocmd FileType make setlocal tabstop=4 noexpandtab
+
+" >>>>> php.vim >>>>>
+" let g:php_syntax_extensions_enabled = []
+" let b:php_syntax_extensions_enabled = []
+
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
+augroup END
