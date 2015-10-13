@@ -5,5 +5,15 @@
 - ubuntu/: Dotfiles for Ubuntu
 - centos/: Dotfiles for CentOS
 
-Make sure running the commands in common/README.md first before running OS specific
-commands for Mac OS X, Ubuntu or CentOS.
+## Getting started
+
+```
+$ ./setup
+
+Dotfiles Setup
+
+Usage:
+  ./setup dotfiles <macosx|ubuntu|centos>   Setup dotfiles for Mac OS X, Ubuntu or CentOS
+  ./setup dryrun <macosx|ubuntu|centos>     Setup dotfiles for Mac OS X, Ubuntu or CentOS
+  ./setup <help|h>                          Show this message
+```
