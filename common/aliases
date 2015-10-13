@@ -29,4 +29,5 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias ~='cd ~'
 alias -- -='cd -'
+alias sshp='ssh -o PubkeyAuthentication=no'
 
