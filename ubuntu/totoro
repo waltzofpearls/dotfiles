@@ -49,3 +49,5 @@ __git_complete gph _git_push
 __git_complete gco _git_checkout
 __git_complete gbr _git_branch
 __git_complete gsh _git_stash
+
+eval `ssh-agent -s`
