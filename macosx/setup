@@ -2,9 +2,16 @@
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+brew update
 brew install wget
 brew install autoenv
 brew install vim
+brew install go
+
+go get -u golang.org/x/tools/cmd/goimports
+go get -u github.com/nsf/gocode
+go get -u code.google.com/p/rog-go/exp/cmd/godef
+go get -u github.com/jstemmer/gotags
 
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
