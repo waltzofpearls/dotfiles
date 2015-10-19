@@ -31,7 +31,7 @@ case "$1" in
       # 1st argument is dotfiles
       if [ "$1" = "dotfiles" ]; then
         (cd ./common; ./setup)
-        (cd $1; ./setup)
+        (cd $2; ./setup)
       # 1st argument is dryrun
       else
         echo
