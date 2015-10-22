@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt-get install -y build-essential cmake python-dev
+
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
 
@@ -17,3 +19,7 @@ cat <<'EOT' >> $HOME/.bashrc
 EOT
 
 source $HOME/.profile
+
+vim +PluginInstall +qall
+cd $HOME/.vim/bundle/YouCompleteMe
+./install.py --clang-completer --gocode-completer

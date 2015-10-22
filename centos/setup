@@ -9,3 +9,7 @@ cat ./aliases >> $HOME/.aliases
 cat ./functions >> $HOME/.functions
 
 source $HOME/.bash_profile
+
+vim +PluginInstall +qall
+cd $HOME/.vim/bundle/YouCompleteMe
+./install.py --clang-completer --gocode-completer

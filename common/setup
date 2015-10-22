@@ -1,9 +1,11 @@
 #!/bin/bash
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
 cat ./gitconfig > $HOME/.gitconfig
 cat ./screenrc > $HOME/.screenrc
 cat ./vimrc > $HOME/.vimrc
+cat ./aliases > $HOME/.aliases
+cat ./functions > $HOME/.functions
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 mkdir -p $HOME/.vim
