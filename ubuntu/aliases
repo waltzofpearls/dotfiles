@@ -2,3 +2,6 @@
 # [Ubuntu] Aliases
 #
 
+alias ll='ls -ahl'
+alias rc=". $HOME/.profile"
+alias sha='$HOME/.ssh/ssh-add'

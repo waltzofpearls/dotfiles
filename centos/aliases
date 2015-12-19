@@ -2,20 +2,6 @@
 # [CentOS] Aliases
 #
 
-alias d='cd /var/bean/'
-alias u0='cd /var/bean/ui/'
-alias u1='cd /var/bean/ui1/'
-alias u2='cd /var/bean/ui2/'
-alias u3='cd /var/bean/ui3/'
-alias u4='cd /var/bean/ui4/'
-alias u5='cd /var/bean/ui5/'
-alias a0='cd /var/bean/api/'
-alias a1='cd /var/bean/api1/'
-alias a2='cd /var/bean/api2/'
-alias a3='cd /var/bean/api3/'
-alias a4='cd /var/bean/api4/'
-alias a5='cd /var/bean/api5/'
-alias A='cd src/Bean/APIBundle/'
 alias rc='source ~/.bash_profile'
 alias sd='setupdemo'
 alias c='rm -rf app/cache/; sudo apachectl restart; redis-cli FLUSHALL'
