@@ -15,6 +15,6 @@ dm() {
 }
 
 ci() {
-  local date_string=`date -jf '%F %T' '$1' '+%a %b %d %T %Y %z'`
+  local date_string=`date -jf "%F %T" "$1" "+%a %b %d %T %Y %z"`
   GIT_COMMITTER_DATE="$date_string" git commit --date="$date_string"
 }
