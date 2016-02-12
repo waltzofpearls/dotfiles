@@ -20,6 +20,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'vim-airline/vim-airline'
 call vundle#end()
 filetype plugin indent on
 
