@@ -18,3 +18,9 @@ ci() {
   local date_string=`date -jf "%F %T" "$1" "+%a %b %d %T %Y %z"`
   GIT_COMMITTER_DATE="$date_string" git commit --date="$date_string"
 }
+
+ycm() {
+  cd ~/.vim/bundle/YouCompleteMe/
+  ./install.py --clang-completer --gocode-completer --tern-completer
+  cd -
+}
