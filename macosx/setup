@@ -6,12 +6,20 @@ brew update
 brew install wget
 brew install autoenv
 brew install vim
+brew install nvm
 brew install go
+
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOROOT/bin
 
 go get -u golang.org/x/tools/cmd/goimports
 go get -u github.com/nsf/gocode
 go get -u github.com/rogpeppe/godef
 go get -u github.com/jstemmer/gotags
+go get -u github.com/tools/godep
+
+source $HOME/.nvm/nvm.sh
+nvm install 5.10
 
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
@@ -24,5 +32,7 @@ cat ./functions >>  $HOME/.functions
 source $HOME/.profile
 
 vim +PluginInstall +qall
-cd $HOME/.vim/bundle/YouCompleteMe
-./install.py --clang-completer --gocode-completer
+(
+  cd $HOME/.vim/bundle/YouCompleteMe
+  ./install.py --clang-completer --gocode-completer --tern-completer
+)

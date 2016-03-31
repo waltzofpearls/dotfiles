@@ -21,8 +21,13 @@ WHITE='\e[0;97m'   # White
 #
 export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\$ "
 
+export TERM='xterm-256color'
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 export NVM_DIR=$HOME/.nvm
-export DCM_DIR=$HOME/workspace/docker-compose
+export DCM_PROJECT=bean
+export DCM_DIR=$GOPATH/src/github.com/beanworks/dcm
 
 #
 # Functions

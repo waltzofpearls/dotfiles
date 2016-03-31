@@ -21,6 +21,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'beanworks/vim-phpfmt'
 call vundle#end()
 filetype plugin indent on
 
@@ -71,6 +72,18 @@ nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
+
+vnoremap <Tab> :call Tab() <CR>
+nnoremap <Tab> :call Tab() <CR>
+
+function! Tab()
+    let col = col(".")
+    let line = line(".")
+    normal %
+    if (col == col(".") && line == line("."))
+        normal $
+    endif
+endfunction
 " ------------------------------- KeyMappings::End -------------------------------
 
 syntax enable
@@ -128,21 +141,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
 
-" adding functions below
-
-" ------------------------------ Functions::Start ------------------------------
-function! Search(...)
-    let args=split(a:1)
-    if len(args) == 2
-        let dir=args[1]
-    else
-        let dir='.'
-    endif
-    echom args[0] . "  " . shellescape(dir)
-endfunction
-com! -nargs=? GrepTab call s:NewTabGrep('<args>')
-" ------------------------------- Functions::End -------------------------------
-
 " >>>>> go-vim >>>>>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -165,7 +163,7 @@ autocmd FileType make setlocal tabstop=4 noexpandtab
 " let b:php_syntax_extensions_enabled = []
 
 function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocTags phpDefine
     hi! def link phpDocParam phpType
 endfunction
 
@@ -173,3 +171,7 @@ augroup phpSyntaxOverride
     autocmd!
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+let g:phpfmt_experimental = 1
+let g:phpfmt_autosave = 1
+let g:phpfmt_standard = $DCM_DIR . '/srv/' . $DCM_PROJECT . '/api/app/BeanPHPStyle.xml'

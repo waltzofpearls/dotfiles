@@ -2,24 +2,41 @@
 
 sudo apt-get install -y build-essential cmake python-dev
 
+wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz -P /tmp
+tar zxf /tmp/go1.6.linux-amd64.tar.gz -C /usr/local
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+go get -u golang.org/x/tools/cmd/goimports
+go get -u github.com/nsf/gocode
+go get -u github.com/rogpeppe/godef
+go get -u github.com/jstemmer/gotags
+go get -u github.com/tools/godep
+
+git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+source $HOME/.nvm/nvm.sh
+nvm install 5.10
+
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
 
-cat ./totoro > $HOME/.totoro
+cat ./localrc > $HOME/.localrc
 cat ./aliases >> $HOME/.aliases
 cat ./functions >> $HOME/.functions
 
 cat <<'EOT' >> $HOME/.bashrc
 
 #
-# Custom bashrc [.totoro]
+# Custom bashrc [.localrc]
 #
-[ -s "$HOME/.totoro" ] && . "$HOME/.totoro"
+[ -s "$HOME/.localrc" ] && . "$HOME/.localrc"
 
 EOT
 
 source $HOME/.profile
 
 vim +PluginInstall +qall
-cd $HOME/.vim/bundle/YouCompleteMe
-./install.py --clang-completer --gocode-completer
+(
+  cd $HOME/.vim/bundle/YouCompleteMe
+  ./install.py --clang-completer --gocode-completer --tern-completer
+)

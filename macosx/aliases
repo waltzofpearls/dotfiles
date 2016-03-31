@@ -11,4 +11,4 @@ alias d2='cd $HOME/Dropbox/Dev'
 alias rc=". $HOME/.profile"
 alias dec='eval $(docker-machine env default)'
 alias sha='$HOME/.ssh/ssh-add'
-
+alias sp='ssh -D8080 node1'
