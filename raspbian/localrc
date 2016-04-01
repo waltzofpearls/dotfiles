@@ -1,0 +1,31 @@
+#
+# [Raspbian] custom .bashrc
+#
+
+export TERM='xterm-256color'
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export NVM_DIR=$HOME/.nvm
+
+#
+# Functions
+#
+[ -s "$HOME/.functions" ] && . "$HOME/.functions"
+
+#
+# Aliases
+#
+[ -s "$HOME/.aliases" ] && . "$HOME/.aliases"
+
+[ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
+[ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+__git_complete gmg _git_merge
+__git_complete grb _git_rebase
+__git_complete gpl _git_pull
+__git_complete gph _git_push
+__git_complete gco _git_checkout
+__git_complete gbr _git_branch
+__git_complete gsh _git_stash

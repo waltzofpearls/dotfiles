@@ -1,0 +1,16 @@
+#
+# [Raspbian] Functions
+#
+
+pu() {
+  # Re-sync repository information.
+  sudo apt-get update -y
+  # Upgrade all existing packages/software.
+  sudo apt-get upgrade -y
+  # Remove automatically-installed dependencies which are longer needed.
+  sudo apt-get autoremove -y
+  # Clears out the package download cache, freeing up disk space.
+  sudo apt-get autoclean -y
+  # Update the Raspberry Pi firmware to the latest.
+  sudo rpi-update
+}

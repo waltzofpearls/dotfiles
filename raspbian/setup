@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Setup a swap
+sudo dd if=/dev/zero of=/swap0 bs=1M count=512
+sudo mkswap /swap0
+echo '/swap0 swap swap' | sudo tee -a /etc/fstab
+sudo chmod 0644 /swap0
+sudo swapon -a
+
+# Install deps
+sudo apt-get update
+sudo apt-get install -y vim i2c-tools
+
+wget https://storage.googleapis.com/golang/go1.6.linux-armv6l.tar.gz -P /tmp
+tar zxf /tmp/go1.6.linux-armv6l.tar.gz -C /usr/local
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+go get -u golang.org/x/tools/cmd/goimports
+go get -u github.com/nsf/gocode
+go get -u github.com/rogpeppe/godef
+go get -u github.com/jstemmer/gotags
+go get -u github.com/tools/godep
+
+# Install NVM and NodeJS
+git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+source $HOME/.nvm/nvm.sh
+nvm install 5.10
+
+# Install docker
+# wget https://downloads.hypriot.com/docker-hypriot_1.10.3-1_armhf.deb
+# sudo dpkg -i docker-hypriot_1.10.3-1_armhf.deb
+# sudo sh -c 'usermod -aG docker $SUDO_USER'
+# sudo systemctl enable docker.service
+
+sudo raspi-config
