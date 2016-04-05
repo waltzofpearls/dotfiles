@@ -2,17 +2,13 @@
 # [Mac OS X] Functions
 #
 
-gr() {
-  grep -irn --color $1 .
+function act() {
+  local machine=${1:-default}
+  eval $(docker-machine env "$machine")
 }
 
-ci() {
-  local date_string=`date -jf "%F %T" "$1" "+%a %b %d %T %Y %z"`
-  GIT_COMMITTER_DATE="$date_string" git commit --date="$date_string"
-}
-
-ycm() {
-  cd ~/.vim/bundle/YouCompleteMe/
-  ./install.py --clang-completer --gocode-completer --tern-completer
-  cd -
+function new() {
+  local machine=${1:-default}
+  local size=${2:-20480}
+  docker-machine create --virtualbox-disk-size "$size" -d virtualbox "$machine"
 }

@@ -2,7 +2,7 @@
 # [Raspbian] Functions
 #
 
-pu() {
+function pu() {
   # Re-sync repository information.
   sudo apt-get update -y
   # Upgrade all existing packages/software.

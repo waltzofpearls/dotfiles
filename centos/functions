@@ -2,18 +2,6 @@
 # [CentOS] Functions
 #
 
-gi() {
-    grep -irn --color $1 .
-}
-gr() {
-    grep -rn --color $1 .
-}
-say() {
+function say() {
     echo "$@" | espeak
-}
-setupdemo() {
-    local DB_NAME=${1:-shardone}
-    psql postgres -c "DROP DATABASE ${DB_NAME};"
-    psql postgres -c "CREATE DATABASE ${DB_NAME};"
-    ./gradlew setupDemo
 }
