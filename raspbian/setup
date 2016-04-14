@@ -4,7 +4,7 @@
 sudo dd if=/dev/zero of=/swap0 bs=1M count=512
 sudo mkswap /swap0
 echo '/swap0 swap swap' | sudo tee -a /etc/fstab
-sudo chmod 0644 /swap0
+sudo chmod 0600 /swap0
 sudo swapon -a
 
 # Install deps
