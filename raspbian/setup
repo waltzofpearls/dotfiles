@@ -25,7 +25,11 @@ go get -u github.com/jstemmer/gotags
 go get -u github.com/tools/godep
 
 # Install NVM and NodeJS
-git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+git clone https://github.com/creationix/nvm.git $HOME/.nvm
+(
+  cd $HOME/.nvm
+  git checkout `git describe --abbrev=0 --tags`
+)
 source $HOME/.nvm/nvm.sh
 nvm install 5.10
 
@@ -35,4 +39,25 @@ nvm install 5.10
 # sudo sh -c 'usermod -aG docker $SUDO_USER'
 # sudo systemctl enable docker.service
 
+# Setup git completion
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
+
+# Setup dotfiles
+cat ./localrc > $HOME/.localrc
+cat ./aliases >> $HOME/.aliases
+cat ./functions >> $HOME/.functions
+cat <<'EOT' >> $HOME/.bashrc
+#
+# Custom bashrc [.localrc]
+#
+[ -s "$HOME/.localrc" ] && . "$HOME/.localrc"
+EOT
+source $HOME/.profile
+
+# Install Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+# Setup
 sudo raspi-config
