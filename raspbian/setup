@@ -11,8 +11,10 @@ sudo swapon -a
 sudo apt-get update
 sudo apt-get install -y vim i2c-tools
 
-wget https://storage.googleapis.com/golang/go1.6.linux-armv6l.tar.gz -P /tmp
-tar zxf /tmp/go1.6.linux-armv6l.tar.gz -C /usr/local
+wget https://storage.googleapis.com/golang/go1.6.1.linux-armv6l.tar.gz -P /tmp
+sudo tar zxf /tmp/go1.6.1.linux-armv6l.tar.gz -C /usr/local
+mkdir $HOME/go
+export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 
