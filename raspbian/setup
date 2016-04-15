@@ -48,6 +48,7 @@ cat ./localrc > $HOME/.localrc
 cat ./aliases >> $HOME/.aliases
 cat ./functions >> $HOME/.functions
 cat <<'EOT' >> $HOME/.bashrc
+
 #
 # Custom bashrc [.localrc]
 #
