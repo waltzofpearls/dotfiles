@@ -44,6 +44,7 @@ wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
 
 # Setup dotfiles
+cat ./vimrc > $HOME/.vimrc
 cat ./localrc > $HOME/.localrc
 cat ./aliases >> $HOME/.aliases
 cat ./functions >> $HOME/.functions
