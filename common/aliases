@@ -36,4 +36,5 @@ alias -- -='cd -'
 alias sshp='ssh -oPubkeyAuthentication=no'
 alias scpp='scp -oPubkeyAuthentication=no'
 alias sftpp='sftp -oPubkeyAuthentication=no'
+alias inet='netstat -rn -finet'
 
