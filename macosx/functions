@@ -2,6 +2,17 @@
 # [Mac OS X] Functions
 #
 
+function ci() {
+  local date_string=`date -jf "%F %T" "$1" "+%a %b %d %T %Y %z"`
+  GIT_COMMITTER_DATE="$date_string" git commit --date="$date_string"
+}
+
+function ycm() {
+  cd ~/.vim/bundle/YouCompleteMe/
+  ./install.py --clang-completer --gocode-completer --tern-completer
+  cd -
+}
+
 function act() {
   local machine=${1:-default}
   eval $(docker-machine env "$machine")
