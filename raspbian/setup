@@ -58,8 +58,7 @@ EOT
 source $HOME/.profile
 
 # Install Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
-# Setup
+# Some pi configs
 sudo raspi-config
