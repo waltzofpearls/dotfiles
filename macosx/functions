@@ -9,7 +9,7 @@ function ci() {
 
 function ycm() {
   cd ~/.vim/bundle/YouCompleteMe/
-  ./install.py --clang-completer --gocode-completer --tern-completer
+  ./install.py --clang-completer --system-boost --gocode-completer --tern-completer
   cd -
 }
 
