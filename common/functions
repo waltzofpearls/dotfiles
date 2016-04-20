@@ -9,15 +9,3 @@ function gr() {
 function gn() {
   grep -irn --color $@ | awk -F: '{print $1" +"$2 $3}' | grep $@
 }
-
-function ci() {
-  local date_string=`date -jf "%F %T" "$1" "+%a %b %d %T %Y %z"`
-  GIT_COMMITTER_DATE="$date_string" git commit --date="$date_string"
-}
-
-function ycm() {
-  cd ~/.vim/bundle/YouCompleteMe/
-  ./install.py --clang-completer --gocode-completer --tern-completer
-  cd -
-}
-
