@@ -2,6 +2,11 @@
 # [Raspbian] Functions
 #
 
+function ci() {
+  local date_string=`date --date "$1" "+%a %b %d %T %Y %z"`
+  GIT_COMMITTER_DATE="$date_string" git commit --date="$date_string"
+}
+
 function pu() {
   # Re-sync repository information.
   sudo apt-get update -y
