@@ -3,11 +3,8 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew update
-brew install wget
-brew install autoenv
-brew install vim
-brew install nvm
-brew install go
+brew install wget autoenv vim nvm go cmake boost boost-python
+brew install llvm --with-clang
 
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin
