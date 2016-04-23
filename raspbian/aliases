@@ -2,6 +2,7 @@
 # [Raspbian] Aliases
 #
 
+alias d='cd $GOPATH/src/github.com/waltzofpearls'
 alias ll='ls -ahl'
 alias rc=". $HOME/.profile"
 alias sha='$HOME/.ssh/ssh-add'
