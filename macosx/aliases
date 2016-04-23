@@ -2,6 +2,10 @@
 # [Mac OS X] Aliases
 #
 
+alias a='dcm goto api'
+alias u='dcm goto ui'
+alias mu="docker exec -ti "${DCM_PROJECT}_ui_1" sh -c 'make dev BW_API_URL=https://localhost:8443/api'"
+alias dr='dcm build && dcm run'
 alias ls='ls -G'
 alias ll='ls -ahl'
 alias vim='/usr/local/bin/vim'
