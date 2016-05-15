@@ -4,7 +4,7 @@
 
 function ci() {
   local date_string=`date --date "$1" "+%a %b %d %T %Y %z"`
-  GIT_COMMITTER_DATE="$date_string" git commit --date="$date_string"
+  GIT_COMMITTER_DATE="$date_string" git commit --date="$date_string" ${@:2}
 }
 
 function pu() {
