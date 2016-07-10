@@ -9,7 +9,7 @@ sudo swapon -a
 
 # Install deps
 sudo apt-get update
-sudo apt-get install -y git vim i2c-tools
+sudo apt-get install -y git vim i2c-tools exuberant-ctags
 
 wget https://storage.googleapis.com/golang/go1.6.1.linux-armv6l.tar.gz -P /tmp
 sudo tar zxf /tmp/go1.6.1.linux-armv6l.tar.gz -C /usr/local
