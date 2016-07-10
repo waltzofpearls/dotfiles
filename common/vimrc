@@ -187,6 +187,7 @@ augroup phpSyntaxOverride
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+" >>>>> vim-phpfmt >>>>>
 let g:phpfmt_experimental = 1
 let g:phpfmt_autosave = 1
 let g:phpfmt_standard = $DCM_DIR . '/srv/' . $DCM_PROJECT . '/api/app/BeanPHPStyle.xml'
