@@ -18,14 +18,10 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 filetype plugin indent on
-
-" for nerd tree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-map <C-n> :NERDTreeToggle<CR>
 " ------------------------------- Plugins::End -------------------------------
 
 set modeline        " read mode line
@@ -137,6 +133,25 @@ autocmd BufWritePre * :%s/\s\+$//e
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
 
+" >>>>> nerdtree >>>>>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <C-n> :NERDTreeToggle<CR>
+
+" >>>>> syntastic >>>>>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" >>>>> tagbar >>>>>
+nmap <C-m> :TagbarToggle<CR>
+
 " >>>>> go-vim >>>>>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -146,6 +161,7 @@ let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
 
+" >>>>> code indentation >>>>>
 filetype plugin indent on
 autocmd FileType python setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sh setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
