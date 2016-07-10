@@ -21,15 +21,11 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
 Plugin 'beanworks/vim-phpfmt'
 call vundle#end()
 filetype plugin indent on
-
-" for nerd tree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-map <C-n> :NERDTreeToggle<CR>
 " ------------------------------- Plugins::End -------------------------------
 
 set modeline        " read mode line
@@ -54,7 +50,7 @@ set title titlestring=%F%M%R
 set statusline=%F%m%r%h%w%y%=%{fugitive#statusline()}\ %l,%c%V\ (%3b=0x%02B)\ %P
 set scrolloff=2
 set incsearch       " do incremental searching
-set listchars=tab:^.,trail:¦
+set listchars=tab:^.,trail:Â¦
 
 " ------------------------------ KeyMappings::Begin ------------------------------
 map Q :nohlsearch<CR>
@@ -141,6 +137,25 @@ autocmd BufWritePre * :%s/\s\+$//e
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
 
+" >>>>> nerdtree >>>>>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <C-n> :NERDTreeToggle<CR>
+
+" >>>>> syntastic >>>>>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" >>>>> tagbar >>>>>
+nmap <C-m> :TagbarToggle<CR>
+
 " >>>>> go-vim >>>>>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -175,3 +190,21 @@ augroup END
 let g:phpfmt_experimental = 1
 let g:phpfmt_autosave = 1
 let g:phpfmt_standard = $DCM_DIR . '/srv/' . $DCM_PROJECT . '/api/app/BeanPHPStyle.xml'
+
+" >>>>> code folding >>>>>
+map ,p :call PHPFold() <CR>
+map ,j :call JSFold() <CR>
+
+function! PHPFold()
+   set foldmethod=manual
+   :%g /function/ normal! jzf%
+   hi Folded ctermbg=236
+   hi Folded ctermfg=166
+endfunction
+
+function! JSFold()
+   set foldmethod=manual
+   :%g /function/ normal! $zf%
+   hi Folded ctermbg=236
+   hi Folded ctermfg=166
+endfunction
