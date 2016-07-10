@@ -165,14 +165,6 @@ let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
 
-filetype plugin indent on
-autocmd FileType python setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType sh setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType go setlocal tabstop=8 noexpandtab
-autocmd FileType make setlocal tabstop=4 noexpandtab
-
 " >>>>> php.vim >>>>>
 " let g:php_syntax_extensions_enabled = []
 " let b:php_syntax_extensions_enabled = []
@@ -191,6 +183,15 @@ augroup END
 let g:phpfmt_experimental = 1
 let g:phpfmt_autosave = 1
 let g:phpfmt_standard = $DCM_DIR . '/srv/' . $DCM_PROJECT . '/api/app/BeanPHPStyle.xml'
+
+" >>>>> code indentation >>>>>
+filetype plugin indent on
+autocmd FileType python setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType sh setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType go setlocal tabstop=8 noexpandtab
+autocmd FileType make setlocal tabstop=4 noexpandtab
 
 " >>>>> code folding >>>>>
 map ,p :call PHPFold() <CR>
