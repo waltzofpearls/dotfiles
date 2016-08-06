@@ -20,6 +20,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 filetype plugin indent on
 " ------------------------------- Plugins::End -------------------------------
