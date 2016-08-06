@@ -23,6 +23,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'beanworks/vim-phpfmt'
 call vundle#end()
 filetype plugin indent on
