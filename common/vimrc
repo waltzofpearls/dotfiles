@@ -142,7 +142,10 @@ cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q')
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <F7> :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+let NERDTreeIgnore=['\~$', '\.pyc$', '^\.DS_Store$', '^node_modules$']
 
 " >>>>> syntastic >>>>>
 set statusline+=%#warningmsg#
@@ -155,7 +158,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " >>>>> tagbar >>>>>
-nmap <C-m> :TagbarToggle<CR>
+nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
 
 " >>>>> go-vim >>>>>
 let g:go_highlight_functions = 1
