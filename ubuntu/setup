@@ -3,8 +3,8 @@
 sudo apt-get update
 sudo apt-get install -y build-essential cmake python-dev
 
-wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz -P /tmp
-tar zxf /tmp/go1.6.linux-amd64.tar.gz -C /usr/local
+wget https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz -P /tmp
+sudo tar zxf /tmp/go1.7.1.linux-amd64.tar.gz -C /usr/local
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 
@@ -16,7 +16,8 @@ go get -u github.com/tools/godep
 
 git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 source $HOME/.nvm/nvm.sh
-nvm install 5.10
+nvm install 4.6.0
+nvm alias default 4.6.0
 
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
