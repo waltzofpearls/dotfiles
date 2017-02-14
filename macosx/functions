@@ -8,9 +8,10 @@ function ci() {
 }
 
 function ycm() {
+  local old_pwd=$(pwd)
   cd ~/.vim/bundle/YouCompleteMe/
   ./install.py --clang-completer --system-boost --gocode-completer --tern-completer
-  cd -
+  cd $old_pwd
 }
 
 function act() {
