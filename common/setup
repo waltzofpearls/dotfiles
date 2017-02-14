@@ -3,6 +3,7 @@
 cat ./gitconfig > $HOME/.gitconfig
 cat ./screenrc > $HOME/.screenrc
 cat ./vimrc > $HOME/.vimrc
+cat ./tmux.conf > $HOME/.tmux.conf
 cat ./aliases > $HOME/.aliases
 cat ./functions > $HOME/.functions
 
