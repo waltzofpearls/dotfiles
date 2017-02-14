@@ -4,6 +4,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 brew update
 brew install wget autoenv vim nvm go boost boost-python cmake ctags
+brew install tmux reattach-to-user-namespace
 
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin
@@ -28,6 +29,7 @@ cat ./functions >>  $HOME/.functions
 source $HOME/.profile
 
 vim +PluginInstall +qall
+vim +GoInstallBinaries +qall
 (
   cd $HOME/.vim/bundle/YouCompleteMe
   ./install.py --clang-completer --gocode-completer --tern-completer
