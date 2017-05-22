@@ -3,7 +3,9 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew update
-brew install wget autoenv vim nvm go boost boost-python cmake ctags
+brew install wget autoenv vim nvm go cmake ctags
+brew install boost
+brew install boost-python --with-python3
 brew install tmux reattach-to-user-namespace
 
 export GOROOT=/usr/local/opt/go/libexec
@@ -16,7 +18,7 @@ go get -u github.com/jstemmer/gotags
 go get -u github.com/tools/godep
 
 source $HOME/.nvm/nvm.sh
-nvm install 5.10
+nvm install 6.10
 
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/.git-completion.sh
