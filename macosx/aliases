@@ -2,18 +2,16 @@
 # [Mac OS X] Aliases
 #
 
-alias a='dcm goto api'
-alias u='dcm goto ui'
-alias mu="docker exec -ti "${DCM_PROJECT}_ui_1" sh -c 'make dev BW_API_URL=https://localhost:8443/api'"
-alias dr='dcm build && dcm run'
 alias ls='ls -G'
 alias ll='ls -ahl'
 alias vim='/usr/local/bin/vim'
 alias vimdiff='/usr/local/bin/vimdiff'
-alias d='cd $HOME/Mjolnir/Dev'
-alias d2='cd $HOME/Dropbox/Dev'
+alias d='cd $HOME/Dev'
 alias rc=". $HOME/.profile"
-alias dm='act beanworks'
 alias sha='$HOME/.ssh/ssh-add'
 alias sp='ssh -D8080 node1'
 alias chrome='open -a "/Applications/Google Chrome.app"'
+alias findd='find . -type d -name'
+alias findf='find . -type f -name'
+alias x509='openssl x509 -noout -text -in'
+alias telnets='/usr/local/Cellar/openssl/1.0.2t/bin/openssl s_client -connect'
