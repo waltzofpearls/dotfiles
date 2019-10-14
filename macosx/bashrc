@@ -24,7 +24,7 @@ export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
 export TERM='xterm-256color'
 export GOPATH=$HOME/Mjolnir/Dev/Golang/default
 export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/.cargo/bi
 export NVM_DIR=$HOME/.nvm
 export DCM_PROJECT=bean
 export DCM_DIR=$GOPATH/src/github.com/beanworks/dcm
@@ -44,8 +44,8 @@ export DCM_DIR=$GOPATH/src/github.com/beanworks/dcm
 #
 [ -s "$HOME/.git-completion.sh" ] && . "$HOME/.git-completion.sh"
 [ -s "$HOME/.git-prompt.sh" ] && . "$HOME/.git-prompt.sh"
+[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[ -s "$DCM_DIR/dcm.sh" ] && . "$DCM_DIR/dcm.sh"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 __git_complete gmg _git_merge
