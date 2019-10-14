@@ -26,8 +26,7 @@ export GOPATH=$HOME/Mjolnir/Dev/Golang/default
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/.cargo/bi
 export NVM_DIR=$HOME/.nvm
-export DCM_PROJECT=bean
-export DCM_DIR=$GOPATH/src/github.com/beanworks/dcm
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 #
 # Functions
