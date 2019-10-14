@@ -12,19 +12,23 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'modess/vim-phpcolors'
 Plugin 'stuartherbert/vim-phix-colors'
 Plugin 'yegappan/mru'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'beanworks/vim-phpfmt'
+Plugin 'cespare/vim-toml'
+Plugin 'hashivim/vim-terraform'
+Plugin 'rust-lang/rust.vim'
+Plugin 'guns/xterm-color-table.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'maxmellon/vim-jsx-pretty'
 call vundle#end()
 filetype plugin indent on
 " ------------------------------- Plugins::End -------------------------------
@@ -133,7 +137,9 @@ set term=linux
 set novb
 set t_Co=256
 
+" ===== Remove empty space at line end =====
 autocmd BufWritePre * :%s/\s\+$//e
+" ===== Remove empty space at line end =====
 
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
@@ -165,63 +171,47 @@ let g:syntastic_python_flake8_args = '--ignore=E501'
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
 
-" >>>>> go-vim >>>>>
+" >>>>> vim-go >>>>>
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 
+let g:go_bin_path = $GOPATH . '/bin'
 let g:go_fmt_command = "goimports"
-
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
 let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1
+let g:go_addtags_transform = "snakecase"
+let g:go_def_mode = "gopls"
+let g:go_info_mode = "gopls"
+let g:go_code_completion_enabled = 1
 
-" >>>>> php.vim >>>>>
-" let g:php_syntax_extensions_enabled = []
-" let b:php_syntax_extensions_enabled = []
-
-function! PhpSyntaxOverride()
-    hi! def link phpDocTags phpDefine
-    hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
-augroup END
-
-" >>>>> vim-phpfmt >>>>>
-let g:phpfmt_experimental = 1
-let g:phpfmt_autosave = 1
-let g:phpfmt_standard = $DCM_DIR . '/srv/' . $DCM_PROJECT . '/api/app/BeanPHPStyle.xml'
+" >>>>> rust.vim >>>>>
+let g:rustfmt_autosave = 1
 
 " >>>>> code indentation >>>>>
 filetype plugin indent on
-autocmd FileType python setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType sh setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType go setlocal tabstop=8 noexpandtab
 autocmd FileType make setlocal tabstop=4 noexpandtab
 
-" >>>>> code folding >>>>>
-map ,p :call PHPFold() <CR>
-map ,j :call JSFold() <CR>
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+autocmd FileType typescript.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
-function! PHPFold()
-   set foldmethod=manual
-   :%g /function/ normal! jzf%
-   hi Folded ctermbg=236
-   hi Folded ctermfg=166
-endfunction
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
 
-function! JSFold()
-   set foldmethod=manual
-   :%g /function/ normal! $zf%
-   hi Folded ctermbg=236
-   hi Folded ctermfg=166
-endfunction
+" let g:ycm_path_to_python_interpreter = $HOME . '/.pyenv/shims/python'
+
+highlight Pmenu ctermfg=250 ctermbg=237
+highlight PmenuSel ctermfg=15 ctermbg=244
