@@ -28,6 +28,12 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/.cargo/bi
 export NVM_DIR=$HOME/.nvm
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 #
 # Functions
 #
