@@ -19,7 +19,7 @@ WHITE='\e[0;97m'   # White
 # MacOS Default PS1
 # PS1="\h:\W \u\$ "
 #
-export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u\$ "
+export PS1="\h:\[$YELLOW\]\W\[\033[m\]\[$CYAN\]\$(__git_ps1) \[$WHITE\]\u # "
 
 export TERM='xterm-256color'
 export GOPATH=$HOME/Mjolnir/Dev/Golang/default
