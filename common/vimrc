@@ -10,6 +10,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
+Plugin 'sebdah/vim-delve'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'stuartherbert/vim-phix-colors'
@@ -29,6 +32,11 @@ Plugin 'guns/xterm-color-table.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'Raimondi/delimitMate'
+Plugin 'junegunn/fzf.vim'
+Plugin 'chiel92/vim-autoformat'
+Plugin 'ruanyl/vim-gh-line'
+Plugin 'jparise/vim-graphql'
 call vundle#end()
 filetype plugin indent on
 " ------------------------------- Plugins::End -------------------------------
@@ -145,6 +153,13 @@ cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W')
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
 
 let mapleader = ','
+nnoremap <silent> <leader>a :cclose<CR>:lclose<CR>
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+
+" >>>>> airline >>>>>
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#fzf#enabled = 0
 
 " >>>>> nerdtree >>>>>
 autocmd StdinReadPre * let s:std_in=1
@@ -168,7 +183,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_flake8_args = '--ignore=E501'
 
 " >>>>> tagbar >>>>>
-nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
 
 " >>>>> vim-go >>>>>
@@ -181,16 +196,26 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 let g:go_bin_path = $GOPATH . '/bin'
 let g:go_fmt_command = "goimports"
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
+" let g:syntastic_go_checkers = ['golint', 'errcheck', 'go']
+let g:syntastic_go_checkers = ['errcheck', 'go']
+let g:syntastic_aggregate_errors = 1
 
 let g:go_list_type = "quickfix"
-let g:go_auto_type_info = 1
 let g:go_addtags_transform = "snakecase"
-let g:go_def_mode = "gopls"
-let g:go_info_mode = "gopls"
 let g:go_code_completion_enabled = 1
+let g:go_auto_sameids = 1
+"let g:go_auto_type_info = 1
+set updatetime=100
+set completeopt-=preview
+highlight def goSameId ctermfg=black ctermbg=lightblue
+
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
 
 " >>>>> rust.vim >>>>>
 let g:rustfmt_autosave = 1
@@ -202,7 +227,7 @@ autocmd FileType sh setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType go setlocal tabstop=8 noexpandtab
+autocmd FileType go setlocal tabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType make setlocal tabstop=4 noexpandtab
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
@@ -213,5 +238,25 @@ autocmd FileType typescript.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2 ex
 
 " let g:ycm_path_to_python_interpreter = $HOME . '/.pyenv/shims/python'
 
+let g:ycm_key_list_select_completion = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 highlight Pmenu ctermfg=250 ctermbg=237
 highlight PmenuSel ctermfg=15 ctermbg=244
+
+:nn <Leader>1 1gt
+:nn <Leader>2 2gt
+:nn <Leader>3 3gt
+:nn <Leader>4 4gt
+:nn <Leader>5 5gt
+:nn <Leader>6 6gt
+:nn <Leader>7 7gt
+:nn <Leader>8 8gt
+:nn <Leader>9 8gt
+:nn <Leader>0 :tablast<CR>
